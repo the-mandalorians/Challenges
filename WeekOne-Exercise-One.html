@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Exercise</title>
+</head>
+<body>
+
+<h1>The following below is in incremental order</h1>
+<h6>Meant as only LOGIC exercises</h6>
+
+<hr>
+<hr>
+
+<!--//1.-->
+<div id="me"></div>
+<hr>
+<!--//2.-->
+<div></div>
+<div></div>
+<div class="wants-to-be-blue"></div>
+<div></div>
+<hr>
+
+
+<!--//3.-->
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><!-- Make me blue! --></li>
+    <li></li>
+    <li></li>
+</ul>
+<hr>
+
+
+<!--//4.-->
+<section>
+    <p>Treacherous HTML ahead!</p>
+
+    <div id="make-me-blue">
+        <!-- Make me blue! -->
+    </div>
+
+    <div></div>
+
+    <div><!-- Make me blue! --></div>
+</section>
+
+<section>
+
+    <p>Can you make this span blue too? <span><!-- Make me blue! --></span></p>
+    <p>But not <span>this one!</span></p>
+
+    <div></div>
+
+    <p>Yes, I know, HTML can be mean sometimes. But it is not on purpose!
+        <span>Or is <i>it?</i> <i><!-- Make me blue! --></i></span></p>
+
+    <div><div><!-- Make me blue! --></div></div>
+</section>
+<hr>
+
+
+<!--//5.-->
+<div>6</div>
+<div>2</div>
+<div>7</div>
+<div>5</div>
+<div>9</div>
+<div>4</div>
+<div>8</div>
+<div>1</div>
+<div>3</div>
+<hr>
+
+
+<!--//6.-->
+<div></div>
+<div class="bomb"></div>
+<div></div>
+<div class="bomb"></div>
+<div></div>
+<div></div>
+<div class="bomb"></div>
+<div></div>
+<div></div>
+<div class="bomb"></div>
+<hr>
+
+
+<!--//7.-->
+<section>
+    <!-- Your enemy will append a div here. Make it blue! -->
+</section>
+<hr>
+
+
+<!--//8.-->
+<button>Click me, fast!</button>
+<div><!-- Make me blue --></div>
+
+
+
+<script src="jquery-2.2.4.js"></script>
+<script>
+//1.
+$('#me').blue();
+
+//2.
+$(".wants-to-be-blue").blue();
+
+//3.
+$("li:eq(3)").blue();
+
+//4.
+$("#make-me-blue").blue();
+$("section div:eq(2)").blue();
+$("section:eq(1) p:eq(0) span").first().blue();
+$("section:eq(1) p:eq(2) span i:eq(1)").last().blue();
+$("section:eq(1) div:eq(1)").find("div").blue();
+
+//5.
+$("div:eq(7)").blue();
+$("div:eq(1)").blue();
+$("div:eq(8)").blue();
+$("div:eq(5)").blue();
+$("div:eq(3)").blue();
+$("div:eq(0)").blue();
+$("div:eq(2)").blue();
+$("div:eq(6)").blue();
+$("div:eq(4)").blue();
+
+//6.
+$("div:eq(0)").blue();
+$("div:eq(2)").blue();
+$("div:eq(4)").blue();
+$("div:eq(5)").blue();
+$("div:eq(7)").blue();
+$("div:eq(8)").blue();
+
+//7.
+//Enemy JS//
+var div = $('<div>'),
+    container = $('section');
+
+setTimeout(function(){
+    container.append(div);
+}, 1000);
+//Player Js//
+setTimeout(function(){
+    $("section div").blue()
+}, 1100);
+
+//8.
+//Initial Js
+var div = $('div'),
+    button = $('button');
+evil.armBomb(div);
+button.on('click', function(){
+    evil.disarmBomb(div);
+});
+setTimeout(function(){
+    button.off('click');
+}, 100);
+
+//CounterJs
+let button = $('button');
+button.on('click', function(){
+    $("div").blue();
+});
+setTimeout(function(){
+    button.off('click');
+}, 500);
+
+
+</script>
+</body>
+</html>

@@ -3,12 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Challenges</title>
-    <script src="Challenges.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            background: lightslategray;
+            font-size: 24px;
+        }
+        #dialog{
+            display: block;
+            border: 3px double black;
+        }
+        
+    </style>
+    
 </head>
+
 <body>
 
-<h1>Mykal</h1>
+<div id="popup">
 
+    <div id="dialog">
+
+        Verify Your Age
+
+        <div ><a style="color:blue;" href="#" id="verify">I am 21 or older</a> | <a style="color:red;" href="#" id="cancel">I
+            am under the age of 21</a></div>
+
+
+    <div id="mask"></div>
+
+    </div>
+
+</div>
+
+<script src="jquery-2.2.4.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        var screenHeight = $(document).height();
+
+        var screenWidth = $(window).width();
+
+        $('#popup').css({
+            display: "block",
+            width: "100%",
+            marginTop: "20%",
+            textAlign: "center"
+        });
+
+        $('#mask').css({
+            width: "maskWidth",
+            height: "maskHeight",
+           });
+
+        $('#mask').fadeIn(2000);
+
+        $('#mask').fadeTo(" slow",0.8);
+
+        $("#dialog").css('top', screenHeight / 2 - $("#dialog").height() / 2);
+
+        $("#dialog").css('left', screenWidth / 2 - $("#dialog").width() / 2);
+
+        $("#dialog").fadeIn(2000);
+
+
+        $("#verify").click(function (e) {
+
+            e.preventDefault();
+
+            $('#mask').hide();
+
+            $('#dialog').hide();
+
+        });
+
+
+        $("#cancel").click(function () {
+
+            window.location.replace("http://google.com");
+
+        });
+
+    });
+
+</script>
 </body>
 </html>
